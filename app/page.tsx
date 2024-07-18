@@ -41,9 +41,9 @@ export default function Home() {
     });
 
     console.log("Deployed Safe:", safe);
-    setSafesOfOwner([...safesOfOwner, safe.safeAddress]);
+    setSafesOfOwner([...safesOfOwner, await safe.getAddress()]);
     setIsDeployingSafe(false);
-    setSelectedSafe(safe.safeAddress);
+    setSelectedSafe(await safe.getAddress());
   };
 
   const handleAddPasskeyAsOwner = async () => {
